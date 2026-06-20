@@ -2,22 +2,22 @@ import { motion } from 'motion/react'
 import { ArrowRight, Check, Star, TrendingUp, Zap } from 'lucide-react'
 import { FootballBackground } from './FootballBackground'
 
-export function Hero() {
+export function Hero({ onStartTrial }: { onStartTrial: () => void }) {
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center px-6 -mt-24 pt-36 pb-28 overflow-hidden">
+    <section className="relative min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 -mt-24 pt-36 pb-28 overflow-hidden">
       <FootballBackground />
       <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[1] h-72 bg-gradient-to-b from-transparent via-black/75 to-black" />
-      <div className="relative z-10 text-center max-w-5xl mx-auto flex flex-col items-center justify-center w-full">
+      <div className="relative z-10 text-center max-w-5xl mx-auto flex flex-col items-center justify-center w-full max-w-[calc(100vw-2rem)]">
         <div className="flex flex-col items-center">
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.05 }}
-            className="flex justify-center mb-6"
+            className="flex justify-center mb-6 px-2"
           >
-            <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-xs text-white/65 backdrop-blur-md">
-              <Star className="w-3 h-3 text-emerald-300" />
-              Built for ambitious academies across global football markets
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-xs text-white/65 backdrop-blur-md text-center leading-snug">
+              <Star className="w-3 h-3 text-emerald-300 flex-shrink-0" />
+              Built for ambitious academies — India, Middle East &amp; beyond
             </div>
           </motion.div>
 
@@ -34,10 +34,10 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-            className="display-heading text-4xl md:text-6xl mb-6 bg-gradient-to-b from-white via-white/95 to-white/70 bg-clip-text text-transparent max-w-4xl"
+            className="display-heading text-[2rem] sm:text-5xl md:text-6xl mb-6 bg-gradient-to-b from-white via-white/95 to-white/70 bg-clip-text text-transparent max-w-4xl leading-tight"
           >
             The operating system
-            <br className="hidden md:block" />
+            <br />
             for football academies.
           </motion.h1>
 
@@ -60,9 +60,9 @@ export function Hero() {
             className="min-h-[50px] mt-2 flex items-center justify-center"
           >
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="#pricing" className="primary-action rounded-full px-8 py-4 text-base font-semibold text-white transition-all inline-flex items-center justify-center gap-2">
-                Start free trial <ArrowRight className="w-4 h-4" />
-              </a>
+              <button onClick={onStartTrial} className="primary-action rounded-full px-8 py-4 text-base font-semibold text-white transition-all inline-flex items-center justify-center gap-2">
+                Get your academy started <ArrowRight className="w-4 h-4" />
+              </button>
               <a href="#how-it-works" className="glass-action rounded-full px-8 py-4 text-base font-medium text-white/85 transition-all">
                 See how it works
               </a>

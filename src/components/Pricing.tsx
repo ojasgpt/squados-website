@@ -1,9 +1,6 @@
 import { Check, ChevronRight, Star } from 'lucide-react'
 import { motion } from 'motion/react'
 
-const TRIAL_URL = 'https://app.squados.in/login'
-const SALES_URL = 'mailto:hello@squados.in'
-
 const PLANS = [
   {
     name: 'Starter',
@@ -14,13 +11,12 @@ const PLANS = [
     features: [
       'Admin + Coach portals',
       'Up to 30 players',
-      'squados.app subdomain',
-      'Weekly automated reports',
+      'Shared academy subdomain',
+      'Session & player tracking',
       'SquadOS branding (footer)',
       'Email support',
     ],
-    cta: 'Start free trial',
-    href: TRIAL_URL,
+    cta: 'Get started',
     variant: 'ghost' as const,
   },
   {
@@ -34,12 +30,11 @@ const PLANS = [
       'Player + Parent portals',
       'Up to 100 players',
       'Custom subdomain',
-      'Smaller SquadOS branding',
-      'Parent messaging',
+      'Reduced SquadOS branding',
+      'Parent visibility reports',
       'Priority support',
     ],
-    cta: 'Start free trial',
-    href: TRIAL_URL,
+    cta: 'Get started',
     variant: 'primary' as const,
   },
   {
@@ -54,16 +49,14 @@ const PLANS = [
       'Full white-label (no SquadOS branding)',
       'Custom domain',
       'Physio, Scout & Analyst portals',
-      'API access',
       'Dedicated onboarding',
     ],
-    cta: 'Contact sales',
-    href: SALES_URL,
+    cta: 'Talk to us',
     variant: 'ghost' as const,
   },
 ]
 
-export function Pricing() {
+export function Pricing({ onSelectPlan }: { onSelectPlan: (plan: string) => void }) {
   return (
     <section id="pricing" className="section-flow py-32 px-6">
       <div className="absolute top-20 left-1/2 h-96 w-96 -translate-x-1/2 rounded-full bg-violet-600/10 blur-3xl" />
@@ -89,8 +82,12 @@ export function Pricing() {
           </p>
         </motion.div>
 
+        <p className="text-center text-white/30 text-xs mb-8 -mt-8">
+          Pricing in INR · Regional pricing available for UK, Middle East, Europe &amp; Africa
+        </p>
+
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
-          {PLANS.map(({ name, price, period, desc, badge, features, cta, href, variant }, index) => (
+          {PLANS.map(({ name, price, period, desc, badge, features, cta, variant }, index) => (
             <motion.div
               key={name}
               initial={{ opacity: 0, y: 24 }}
@@ -125,8 +122,8 @@ export function Pricing() {
                 ))}
               </ul>
 
-              <a
-                href={href}
+              <button
+                onClick={() => onSelectPlan(name)}
                 className={
                   variant === 'primary'
                     ? 'primary-action rounded-full px-8 py-3 text-sm font-semibold text-white transition-all w-full inline-flex items-center justify-center gap-2'
@@ -134,7 +131,7 @@ export function Pricing() {
                 }
               >
                 {cta} <ChevronRight className="w-4 h-4" />
-              </a>
+              </button>
             </motion.div>
           ))}
         </div>

@@ -1,7 +1,7 @@
 import { ArrowRight } from 'lucide-react'
 import { motion } from 'motion/react'
 
-export function CtaBanner() {
+export function CtaBanner({ onGetStarted }: { onGetStarted: () => void }) {
   return (
     <section className="section-flow py-32 px-6">
       <div className="section-inner max-w-6xl mx-auto">
@@ -24,12 +24,12 @@ export function CtaBanner() {
               Start your 14-day free trial today — no card needed, no developers required, live in under 30 minutes.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="#pricing" className="primary-action rounded-full px-8 py-4 text-base font-semibold text-white transition-all inline-flex items-center justify-center gap-2">
-                Get started free <ArrowRight className="w-4 h-4" />
-              </a>
-              <a href="mailto:hello@squados.in" className="glass-action rounded-full px-8 py-4 text-base font-medium text-white/85 transition-all">
+              <button onClick={onGetStarted} className="primary-action rounded-full px-8 py-4 text-base font-semibold text-white transition-all inline-flex items-center justify-center gap-2">
+                Get your academy started <ArrowRight className="w-4 h-4" />
+              </button>
+              <button onClick={onGetStarted} className="glass-action rounded-full px-8 py-4 text-base font-medium text-white/85 transition-all">
                 Book a demo
-              </a>
+              </button>
             </div>
           </div>
         </motion.div>

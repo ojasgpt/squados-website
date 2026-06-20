@@ -9,9 +9,7 @@ const LINKS = [
   { label: 'Pricing',     href: '#pricing'       },
 ]
 
-const PORTAL_URL = 'https://app.squados.in'
-
-export function Navbar() {
+export function Navbar({ onGetStarted }: { onGetStarted: () => void }) {
   const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
@@ -43,13 +41,13 @@ export function Navbar() {
           </div>
         </div>
 
-        <div className="flex items-center gap-4">
-          <a href={`${PORTAL_URL}/login`} className="hidden sm:inline text-white/70 hover:text-white transition-colors text-sm font-medium cursor-pointer">
-            Log in
-          </a>
-          <a href="#pricing" className="glass-action rounded-full px-4 sm:px-6 py-2 text-sm font-medium text-white transition-all cursor-pointer">
+        <div className="flex items-center gap-3">
+          <button
+            onClick={onGetStarted}
+            className="glass-action rounded-full px-4 sm:px-5 py-2 text-xs sm:text-sm font-medium text-white transition-all whitespace-nowrap"
+          >
             Get Started
-          </a>
+          </button>
         </div>
       </div>
     </motion.nav>

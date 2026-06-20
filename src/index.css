@@ -289,3 +289,31 @@ input {
     radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.12) 0 1px, transparent 1px);
   background-size: 42px 42px, 58px 58px;
 }
+
+/* Lead form inputs */
+.lead-input {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 0.75rem;
+  padding: 0.6rem 0.875rem;
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.85);
+  outline: none;
+  transition: border-color 0.2s, background 0.2s;
+  font-family: inherit;
+}
+
+.lead-input::placeholder {
+  color: rgba(255, 255, 255, 0.2);
+}
+
+.lead-input:focus {
+  border-color: rgba(124, 58, 237, 0.5);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.lead-input option {
+  background: #1a1a2e;
+  color: white;
+}
