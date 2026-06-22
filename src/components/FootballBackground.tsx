@@ -21,8 +21,11 @@ export function FootballBackground() {
       <div className="football-stripes absolute inset-0 opacity-45" />
       <div className="football-grain absolute inset-0 opacity-[0.16]" />
 
+      <div
+        className="absolute left-1/2 w-[1460px] max-w-[136vw]"
+        style={{ top: '42vh', transform: 'translate(-50%, -50%)' }}
+      >
       <motion.div
-        className="absolute left-1/2 top-[49%] w-[1460px] max-w-[136vw] -translate-x-1/2 -translate-y-1/2"
         animate={{ y: [0, -10, 0], rotate: [-7, -5.5, -7] }}
         transition={{ duration: 14, repeat: Infinity, ease: 'easeInOut' }}
       >
@@ -34,9 +37,9 @@ export function FootballBackground() {
         >
           <defs>
             <linearGradient id="pitchLine" x1="80" y1="90" x2="1120" y2="670">
-              <stop stopColor="#ffffff" stopOpacity="0.1" />
-              <stop offset="0.5" stopColor="#93c5fd" stopOpacity="0.42" />
-              <stop offset="1" stopColor="#ffffff" stopOpacity="0.1" />
+              <stop stopColor="#ffffff" stopOpacity="0.18" />
+              <stop offset="0.5" stopColor="#93c5fd" stopOpacity="0.65" />
+              <stop offset="1" stopColor="#ffffff" stopOpacity="0.18" />
             </linearGradient>
             <linearGradient id="routeLine" x1="200" y1="520" x2="1000" y2="240">
               <stop stopColor="#34d399" stopOpacity="0.28" />
@@ -107,6 +110,7 @@ export function FootballBackground() {
           />
         </svg>
       </motion.div>
+      </div>
 
       <motion.div
         className="absolute -left-24 top-1/4 h-32 w-[42rem] rotate-[-18deg] rounded-full bg-emerald-400/10 blur-3xl"
